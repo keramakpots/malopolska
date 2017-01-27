@@ -1,5 +1,6 @@
 from ui import *
 from places import *
+import time
 
 def options(state):
     """user choose options"""
@@ -11,9 +12,9 @@ def options(state):
     elif option == "3":
         largest_county(state)
     elif option == "4":
-        pass
+        find_multiple_category_object(state)
     elif option == "5":
-        pass
+        advanced_search(state)
     elif option == "0":
         exit()
     else:
@@ -38,6 +39,8 @@ def list_statistic(state):
     Ui.print_message("delegatura"), Ui.print_message(Delegacy.nmb_of_instances)
     Ui.print_message("gmina miejsko-wiejska"), Ui.print_message(City_Village_Community.nmb_of_instances)
 
+    time.sleep(5)
+
 def largest_county(state):
     """find largest county"""
     amount_of_communities = 0
@@ -47,6 +50,8 @@ def largest_county(state):
                 amount_of_communities = len(county.in_c)
                 county_name = county.name
     Ui.print_message(county_name)
+
+    time.sleep(5)
 
 def longest_city_names(state):
     """finds three cities with longest names"""
@@ -71,6 +76,23 @@ def longest_city_names(state):
     Ui.print_message(long_1)
     Ui.print_message(long_2)
     Ui.print_message(long_3)
+
+    time.sleep(5)
+
+
+def find_multiple_category_object(state):
+    """finds multiple category locations"""
+    locations = []
+    x = 0
+    while x < len(state.in_s)-1:
+        if state.in_s[x].name == state.in_s[x+1].name:
+            if state.in_s[x].name not in locations:
+                locations.append(state.in_s[x].name)
+        x += 1
+    for location in locations:
+        Ui.print_message(location)
+
+    time.sleep(5)
 
 def main():
     """initialized program"""
