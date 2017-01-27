@@ -94,6 +94,14 @@ def find_multiple_category_object(state):
 
     time.sleep(5)
 
+def advanced_search(state):
+    location = Ui.get_input("What are you looking for?: ")
+    locations_with_given_name = []
+    for place in state.in_s:
+        if location == place.name:
+            locations_with_given_name.append(place.name)
+    Ui.print_message(locations_with_given_name)
+
 def main():
     """initialized program"""
     state = Ui.create_objects(Ui.load_data('malopolska.csv'))
