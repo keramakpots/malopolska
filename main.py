@@ -91,7 +91,7 @@ def find_multiple_category_object(state):
     x = 0
     while x < len(state.in_s) - 1:
         if state.in_s[x].name == state.in_s[x + 1].name:
-            locations.append(["{} : {}".format(state.in_s[x].name, state.in_s[x].type)])
+            locations.append(["{:^20} : {:^20}".format(state.in_s[x].name, state.in_s[x].type)])
         x += 1
 
     x = 0
