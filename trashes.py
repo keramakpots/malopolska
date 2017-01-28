@@ -1,8 +1,0 @@
-Ui.print_message(state.name)
-    Ui.print_message("powiat"), Ui.print_message(county_counter)
-    Ui.print_message("miasto"), Ui.print_message(city_counter)
-    Ui.print_message("gmina wiejska"), Ui.print_message(village_community_counter)
-    Ui.print_message("gmina miejska"), Ui.print_message(city_community_counter)
-    Ui.print_message("obszar wiejski"), Ui.print_message(village_square_counter)
-    Ui.print_message("delegatura"), Ui.print_message(delegacy_counter)
-    Ui.print_message("gmina miejsko-wiejska"), Ui.print_message(city_village_community_counter)
