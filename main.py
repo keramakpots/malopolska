@@ -30,16 +30,11 @@ def menu_start():
 
 def list_statistic(state):
     """prints statistics about every element in state"""
-    Ui.print_message(state.name)
-    Ui.print_message("powiat"), Ui.print_message(County.nmb_of_instances)
-    Ui.print_message("miasto"), Ui.print_message(City.nmb_of_instances)
-    Ui.print_message("gmina wiejska"), Ui.print_message(Village_Community.nmb_of_instances)
-    Ui.print_message("gmina miejska"), Ui.print_message(City_Community.nmb_of_instances)
-    Ui.print_message("obszar wiejski"), Ui.print_message(Village_square.nmb_of_instances)
-    Ui.print_message("delegatura"), Ui.print_message(Delegacy.nmb_of_instances)
-    Ui.print_message("gmina miejsko-wiejska"), Ui.print_message(City_Village_Community.nmb_of_instances)
+    head = state.name
+    table = [["powiat", County.nmb_of_instances], ["miasto", City.nmb_of_instances], ["gmina wiejska", Village_Community.nmb_of_instances], ["gmina miejska", City_Community.nmb_of_instances], ["obszar wiejski", Village_square.nmb_of_instances], ["delegatura", Delegacy.nmb_of_instances], ["gmina miejsko-wiejska", City_Village_Community.nmb_of_instances]]
+    Ui.print_table(table, head)
 
-    time.sleep(5)
+    time.sleep(8)
 
 def largest_county(state):
     """find largest county"""
@@ -49,7 +44,7 @@ def largest_county(state):
             if len(county.in_c) > amount_of_communities:
                 amount_of_communities = len(county.in_c)
                 county_name = county.name
-    Ui.print_message(county_name)
+    Ui.print_message("County with the largest amount of communities is {}.".format(county_name))
 
     time.sleep(5)
 
@@ -73,9 +68,7 @@ def longest_city_names(state):
         elif len(long_3) < len(cities[x]):
             long_3 = cities[x]
         x += 1
-    Ui.print_message(long_1)
-    Ui.print_message(long_2)
-    Ui.print_message(long_3)
+    Ui.print_table([[long_1], [long_2], [long_3]], "City/Cities with longest names")
 
     time.sleep(5)
 
@@ -86,21 +79,23 @@ def find_multiple_category_object(state):
     x = 0
     while x < len(state.in_s)-1:
         if state.in_s[x].name == state.in_s[x+1].name:
-            if state.in_s[x].name not in locations:
-                locations.append(state.in_s[x].name)
+            locations.append([state.in_s[x].name, state.in_s[x].type])
         x += 1
-    for location in locations:
-        Ui.print_message(location)
 
-    time.sleep(5)
+    Ui.print_table(locations, "Locations with more than one category")
+
+    time.sleep(10)
 
 def advanced_search(state):
+    """finds locations with given fraze in name"""
     location = Ui.get_input("What are you looking for?: ")
     locations_with_given_name = []
     for place in state.in_s:
         if location in place.name:
             locations_with_given_name.append([place.name, place.type])
-    Ui.print_message(locations_with_given_name)
+    Ui.print_table(locations_with_given_name, "Locations with '{}' in name".format(location))
+
+    time.sleep(5)
 
 def main():
     """initialized program"""

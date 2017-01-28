@@ -1,5 +1,6 @@
 import os
 from places import *
+from tabulate import tabulate
 
 class Ui:
 
@@ -23,9 +24,11 @@ class Ui:
         return data
 
     @classmethod
-    def print_table(cls):
+    def print_table(cls, table, headers):
         """prints table"""
-        pass
+        Ui.clear()
+        print(headers)
+        print(tabulate(table))
 
     @classmethod
     def print_menu(cls, title, list_options, exit_message):
@@ -71,7 +74,7 @@ class Ui:
         for county in state.in_s:
             if type(county) == County:
                 for community in state.in_s:
-                    if community.county_number == county.county_number:
+                    if community.county_number == county.county_number and type(community) != County:
                         county.in_county(community)
 
         return state
