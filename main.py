@@ -19,7 +19,9 @@ def options(state):
     elif option == "0":
         exit()
     else:
-        Ui.print_message("Choose number 1 to 5 or 0 for exit")
+        Ui.clear()
+        Ui.print_message("Bad option. Choose number 1 to 5 or 0 for exit")
+        time.sleep(3)
 
 
 def menu_start():
