@@ -2,6 +2,7 @@ from ui import *
 from places import *
 import time
 
+
 def options(state):
     """user choose options"""
     option = Ui.get_input("Choose option: ")
@@ -20,6 +21,7 @@ def options(state):
     else:
         Ui.print_message("Choose number 1 to 5 or 0 for exit")
 
+
 def menu_start():
     """prints menu"""
     Ui.print_message("What would you like to do: ")
@@ -28,13 +30,20 @@ def menu_start():
                "Display locations, that belong to more than one category", "Advanced search"]
     Ui.print_menu("Main menu", options, "Exit program")
 
+
 def list_statistic(state):
     """prints statistics about every element in state"""
     head = state.name
-    table = [["powiat", County.nmb_of_instances], ["miasto", City.nmb_of_instances], ["gmina wiejska", Village_Community.nmb_of_instances], ["gmina miejska", City_Community.nmb_of_instances], ["obszar wiejski", Village_square.nmb_of_instances], ["delegatura", Delegacy.nmb_of_instances], ["gmina miejsko-wiejska", City_Village_Community.nmb_of_instances]]
-    Ui.print_table(table, head)
+    table = [["{} : {}".format("powiat", County.nmb_of_instances)], ["{}:{}".format("miasto", City.nmb_of_instances)],
+             ["{} : {}".format("gmina wiejska", Village_Community.nmb_of_instances)],
+             ["{} : {}".format("gmina miejska", City_Community.nmb_of_instances)],
+             ["{} : {}".format("obszar wiejski", Village_square.nmb_of_instances)],
+             ["{} : {}".format("delegatura", Delegacy.nmb_of_instances)],
+             ["{} : {}".format("gmina miejsko-wiejska", City_Village_Community.nmb_of_instances)]]
+    Ui.print_table(table, [head])
 
-    time.sleep(8)
+    time.sleep(5)
+
 
 def largest_county(state):
     """find largest county"""
@@ -47,6 +56,7 @@ def largest_county(state):
     Ui.print_message("County with the largest amount of communities is {}.".format(county_name))
 
     time.sleep(5)
+
 
 def longest_city_names(state):
     """finds three cities with longest names"""
@@ -68,7 +78,7 @@ def longest_city_names(state):
         elif len(long_3) < len(cities[x]):
             long_3 = cities[x]
         x += 1
-    Ui.print_table([[long_1], [long_2], [long_3]], "City/Cities with longest names")
+    Ui.print_table([[long_1], [long_2], [long_3]], ["City/Cities with longest names"])
 
     time.sleep(5)
 
@@ -77,14 +87,15 @@ def find_multiple_category_object(state):
     """finds multiple category locations"""
     locations = []
     x = 0
-    while x < len(state.in_s)-1:
-        if state.in_s[x].name == state.in_s[x+1].name:
-            locations.append([state.in_s[x].name, state.in_s[x].type])
+    while x < len(state.in_s) - 1:
+        if state.in_s[x].name == state.in_s[x + 1].name:
+            locations.append(["{} : {}".format(state.in_s[x].name, state.in_s[x].type)])
         x += 1
 
-    Ui.print_table(locations, "Locations with more than one category")
+    Ui.print_table(locations, ["Locations with more than one category"])
 
     time.sleep(10)
+
 
 def advanced_search(state):
     """finds locations with given fraze in name"""
@@ -92,10 +103,11 @@ def advanced_search(state):
     locations_with_given_name = []
     for place in state.in_s:
         if location in place.name:
-            locations_with_given_name.append([place.name, place.type])
-    Ui.print_table(locations_with_given_name, "Locations with '{}' in name".format(location))
+            locations_with_given_name.append(["{} : {}".format(place.name, place.type)])
+    Ui.print_table(locations_with_given_name, ["Locations with '{}' in name".format(location)])
 
     time.sleep(5)
+
 
 def main():
     """initialized program"""
@@ -106,6 +118,7 @@ def main():
             options(state)
         except KeyError as err:
             Ui.print_message(err)
+
 
 main()
 

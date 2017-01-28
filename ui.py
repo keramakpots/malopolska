@@ -27,8 +27,8 @@ class Ui:
     def print_table(cls, table, headers):
         """prints table"""
         Ui.clear()
-        print(headers)
-        print(tabulate(table))
+        #print(headers)
+        print(tabulate(table, headers, tablefmt="grid"))
 
     @classmethod
     def print_menu(cls, title, list_options, exit_message):
