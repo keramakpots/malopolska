@@ -105,6 +105,19 @@ def advanced_search(state):
         if location in place.name:
             locations_with_given_name.append([place.name, place.type])
 
+    x = 0
+
+    while x < len(locations_with_given_name):
+        y = 0
+        while y < len(locations_with_given_name)-1:
+            if locations_with_given_name[y][0] > locations_with_given_name[y + 1][0]:
+                lower_name = locations_with_given_name[y + 1]
+                higher_name = locations_with_given_name[y]
+                locations_with_given_name[y] = lower_name
+                locations_with_given_name[y + 1] = higher_name
+            y += 1
+        x += 1
+
     Ui.print_table(locations_with_given_name, ["LOCATION", "TYPE"])
     Ui.print_message("{} location(s) found.".format(len(locations_with_given_name)))
 
