@@ -34,11 +34,11 @@ def menu_start():
 def list_statistic(state):
     """prints statistics about every element in state"""
     head = state.name
-    table = [["{} : {}".format("powiat", County.nmb_of_instances)], ["{}:{}".format("miasto", City.nmb_of_instances)],
-             ["{} : {}".format("gmina wiejska", Village_Community.nmb_of_instances)],
-             ["{} : {}".format("gmina miejska", City_Community.nmb_of_instances)],
-             ["{} : {}".format("obszar wiejski", Village_square.nmb_of_instances)],
-             ["{} : {}".format("delegatura", Delegacy.nmb_of_instances)],
+    table = [["{} : {:>17}".format("powiat", County.nmb_of_instances)], ["{} : {:>17}".format("miasto", City.nmb_of_instances)],
+             ["{} : {:>10}".format("gmina wiejska", Village_Community.nmb_of_instances)],
+             ["{} : {:>10}".format("gmina miejska", City_Community.nmb_of_instances)],
+             ["{} : {:>9}".format("obszar wiejski", Village_square.nmb_of_instances)],
+             ["{} : {:>13}".format("delegatura", Delegacy.nmb_of_instances)],
              ["{} : {}".format("gmina miejsko-wiejska", City_Village_Community.nmb_of_instances)]]
     Ui.print_table(table, [head])
 
@@ -103,8 +103,8 @@ def advanced_search(state):
     locations_with_given_name = []
     for place in state.in_s:
         if location in place.name:
-            locations_with_given_name.append(["{} : {}".format(place.name, place.type)])
-    Ui.print_table(locations_with_given_name, ["Locations with '{}' in name".format(location)])
+            locations_with_given_name.append([place.name, place.type])
+    Ui.print_table(locations_with_given_name, ["LOCATION", "TYPE"])
 
     time.sleep(5)
 
