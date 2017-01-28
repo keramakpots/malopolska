@@ -92,6 +92,19 @@ def find_multiple_category_object(state):
             locations.append(["{} : {}".format(state.in_s[x].name, state.in_s[x].type)])
         x += 1
 
+    x = 0
+
+    while x < len(locations):
+        y = 0
+        while y < len(locations) - 1:
+            if locations[y][0] > locations[y + 1][0]:
+                lower_name = locations[y + 1]
+                higher_name = locations[y]
+                locations[y] = lower_name
+                locations[y + 1] = higher_name
+            y += 1
+        x += 1
+
     Ui.print_table(locations, ["Locations with more than one category"])
 
     time.sleep(10)
