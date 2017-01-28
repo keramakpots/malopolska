@@ -104,7 +104,9 @@ def advanced_search(state):
     for place in state.in_s:
         if location in place.name:
             locations_with_given_name.append([place.name, place.type])
+
     Ui.print_table(locations_with_given_name, ["LOCATION", "TYPE"])
+    Ui.print_message("{} location(s) found.".format(len(locations_with_given_name)))
 
     time.sleep(5)
 
