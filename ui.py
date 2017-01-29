@@ -24,11 +24,45 @@ class Ui:
         return data
 
     @classmethod
-    def print_table(cls, table, headers):
+    def print_table(cls, table, title_list):
         """prints table"""
         Ui.clear()
+        cell_size = list()
 
-        print(tabulate(table, headers, tablefmt="grid"))
+        for i, title in enumerate(title_list):
+            cell_size.append(len(title))
+
+        for items in table:
+            for i, item in enumerate(items):
+                try:
+                    if cell_size[i] < len(str(item)):
+                        cell_size[i] = len(str(item))
+                except:
+                    cell_size.append(len(str(item)))
+
+        # how big table
+        table_size = 1
+        for dash in cell_size:
+            table_size += (dash + 3)
+
+        # printing table
+        print('-' * table_size)
+
+        for i, title in enumerate(title_list):
+            if i == 0:
+                print('|', end="")
+            print(' {:{width}} |'.format(title, width=cell_size[i]), end="")
+
+        print('\n' + '-' * table_size)
+
+        for items in table:
+            for i, item in enumerate(items):
+                if i == 0:
+                    print('|', end="")
+                print(' {:{width}} |'.format(str(item), width=cell_size[i]), end="")
+            print()
+
+        print('-' * table_size)
 
     @classmethod
     def print_menu(cls, title, list_options, exit_message):

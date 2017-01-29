@@ -5,6 +5,7 @@ import time
 
 def options(state):
     """user choose options"""
+    Ui.print_message("\n")
     option = Ui.get_input("Choose option: ")
     if option == "1":
         list_statistic(state)
