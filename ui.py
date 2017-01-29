@@ -27,7 +27,7 @@ class Ui:
     def print_table(cls, table, headers):
         """prints table"""
         Ui.clear()
-        #print(headers)
+
         print(tabulate(table, headers, tablefmt="grid"))
 
     @classmethod
@@ -44,6 +44,7 @@ class Ui:
 
     @classmethod
     def create_objects(cls, table):
+        """It create's objects from a file"""
         x = 2
         state = State(table[1][4])
         while x < len(table):
@@ -70,7 +71,8 @@ class Ui:
                 delagacy = Delegacy(line[4], line[1], line[2])
                 state.in_state(delagacy)
             x+=1
-        for county in state.in_s:
+
+        for county in state.in_s:#adding community objects to a proper county
             if type(county) == County:
                 for community in state.in_s:
                     if community.county_number == county.county_number and type(community) != County:

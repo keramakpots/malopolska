@@ -27,6 +27,8 @@ def options(state):
 def menu_start():
     """prints menu"""
     Ui.print_message("What would you like to do: ")
+    Ui.print_message("\n")
+    Ui.print_message("\n")
     options = ["List statistics", "Display 3 cities with longest names",
                "Display county's name with the largest number of communities",
                "Display locations, that belong to more than one category", "Advanced search"]
@@ -36,12 +38,12 @@ def menu_start():
 def list_statistic(state):
     """prints statistics about every element in state"""
     head = state.name
-    table = [["{} : {:>17}".format("powiat", County.nmb_of_instances)], ["{} : {:>17}".format("miasto", City.nmb_of_instances)],
-             ["{} : {:>10}".format("gmina wiejska", Village_Community.nmb_of_instances)],
-             ["{} : {:>10}".format("gmina miejska", City_Community.nmb_of_instances)],
-             ["{} : {:>9}".format("obszar wiejski", Village_square.nmb_of_instances)],
-             ["{} : {:>13}".format("delegatura", Delegacy.nmb_of_instances)],
-             ["{} : {}".format("gmina miejsko-wiejska", City_Village_Community.nmb_of_instances)]]
+    table = [["powiat", County.nmb_of_instances], ["miasto", City.nmb_of_instances],
+             ["gmina wiejska", Village_Community.nmb_of_instances],
+             ["gmina miejska", City_Community.nmb_of_instances],
+             ["obszar wiejski", Village_square.nmb_of_instances],
+             ["delegatura", Delegacy.nmb_of_instances],
+             ["gmina miejsko-wiejska", City_Village_Community.nmb_of_instances]]
     Ui.print_table(table, [head])
 
 
@@ -53,7 +55,9 @@ def largest_county(state):
             if len(county.in_c) > amount_of_communities:
                 amount_of_communities = len(county.in_c)
                 county_name = county.name
+    Ui.clear()
     Ui.print_message("County with the largest amount of communities is {}.".format(county_name))
+    time.sleep(3)
 
 
 def longest_city_names(state):
@@ -90,7 +94,7 @@ def find_multiple_category_object(state):
 
     x = 0
 
-    while x < len(locations):
+    while x < len(locations):#sorting locations by name
         y = 0
         while y < len(locations) - 1:
             if locations[y][0] > locations[y + 1][0]:
@@ -114,9 +118,9 @@ def advanced_search(state):
 
     x = 0
 
-    while x < len(locations_with_given_name):
+    while x < len(locations_with_given_name):#sorting locations by name
         y = 0
-        while y < len(locations_with_given_name)-1:
+        while y < len(locations_with_given_name) - 1:
             if locations_with_given_name[y][0] > locations_with_given_name[y + 1][0]:
                 lower_name = locations_with_given_name[y + 1]
                 higher_name = locations_with_given_name[y]
@@ -127,7 +131,6 @@ def advanced_search(state):
 
     Ui.print_table(locations_with_given_name, ["LOCATION", "TYPE"])
     Ui.print_message("{} location(s) found.".format(len(locations_with_given_name)))
-
 
 
 def main():
