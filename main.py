@@ -106,6 +106,18 @@ def find_multiple_category_object(state):
             y += 1
         x += 1
 
+    while x < len(locations):#sorting locations by name
+        y = 0
+        while y < len(locations) - 1:
+            if locations[y][0] == locations[y + 1][0]:
+                if locations[y][1] > locations[y][1]:
+                    lower_type = locations[y + 1]
+                    higher_type = locations[y]
+                    locations[y] = lower_type
+                    locations[y + 1] = higher_type
+            y += 1
+        x += 1
+
     Ui.print_table(locations, ["LOCATION", "TYPE"])
 
 
