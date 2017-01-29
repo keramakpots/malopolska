@@ -24,8 +24,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="116" column="50" lean-forward="false" selection-start-line="116" selection-start-column="50" selection-end-line="116" selection-end-column="50" />
+            <state relative-caret-position="249">
+              <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -36,8 +36,8 @@
       <file leaf-file-name="malopolska.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/malopolska.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="265">
+              <caret line="287" column="28" lean-forward="true" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -512,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485697637835</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="loop which sort types in multiple category objects funtion added">
+      <created>1485721452850</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1485721452850</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -587,7 +594,8 @@
     <MESSAGE value="Clear() in Ui.print_menu() delated" />
     <MESSAGE value="commentary added in ui.py  and main.py" />
     <MESSAGE value="printing table without tabulate module" />
-    <option name="LAST_COMMIT_MESSAGE" value="printing table without tabulate module" />
+    <MESSAGE value="loop which sort types in multiple category objects funtion added" />
+    <option name="LAST_COMMIT_MESSAGE" value="loop which sort types in multiple category objects funtion added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -907,14 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/malopolska.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/places.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -941,10 +941,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/malopolska.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="287" column="28" lean-forward="true" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="116" column="50" lean-forward="false" selection-start-line="116" selection-start-column="50" selection-end-line="116" selection-end-column="50" />
+        <state relative-caret-position="249">
+          <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
