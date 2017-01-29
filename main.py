@@ -44,8 +44,6 @@ def list_statistic(state):
              ["{} : {}".format("gmina miejsko-wiejska", City_Village_Community.nmb_of_instances)]]
     Ui.print_table(table, [head])
 
-    time.sleep(5)
-
 
 def largest_county(state):
     """find largest county"""
@@ -56,8 +54,6 @@ def largest_county(state):
                 amount_of_communities = len(county.in_c)
                 county_name = county.name
     Ui.print_message("County with the largest amount of communities is {}.".format(county_name))
-
-    time.sleep(5)
 
 
 def longest_city_names(state):
@@ -82,8 +78,6 @@ def longest_city_names(state):
         x += 1
     Ui.print_table([[long_1], [long_2], [long_3]], ["City/Cities with longest names"])
 
-    time.sleep(5)
-
 
 def find_multiple_category_object(state):
     """finds multiple category locations"""
@@ -91,7 +85,7 @@ def find_multiple_category_object(state):
     x = 0
     while x < len(state.in_s) - 1:
         if state.in_s[x].name == state.in_s[x + 1].name:
-            locations.append(["{:^20} : {:^20}".format(state.in_s[x].name, state.in_s[x].type)])
+            locations.append([state.in_s[x].name, state.in_s[x].type])
         x += 1
 
     x = 0
@@ -107,9 +101,7 @@ def find_multiple_category_object(state):
             y += 1
         x += 1
 
-    Ui.print_table(locations, ["Locations with more than one category"])
-
-    time.sleep(10)
+    Ui.print_table(locations, ["LOCATION", "TYPE"])
 
 
 def advanced_search(state):
@@ -136,12 +128,12 @@ def advanced_search(state):
     Ui.print_table(locations_with_given_name, ["LOCATION", "TYPE"])
     Ui.print_message("{} location(s) found.".format(len(locations_with_given_name)))
 
-    time.sleep(5)
 
 
 def main():
     """initialized program"""
     state = Ui.create_objects(Ui.load_data('malopolska.csv'))
+    Ui.clear()
     while True:
         menu_start()
         try:

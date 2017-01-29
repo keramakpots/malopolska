@@ -33,7 +33,6 @@ class Ui:
     @classmethod
     def print_menu(cls, title, list_options, exit_message):
         """prints menu"""
-        Ui.clear()
 
         print(title)
 
